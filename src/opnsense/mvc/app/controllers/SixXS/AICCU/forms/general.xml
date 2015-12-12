@@ -1,0 +1,42 @@
+<form>
+    <field>
+        <id>aiccu.general.enabled</id>
+        <label>Enabled</label>
+        <type>checkbox</type>
+        <help>Enable the AICCU service</help>
+    </field>
+    <field>
+        <id>aiccu.general.username</id>
+        <label>Username</label>
+        <type>text</type>
+        <help>SixXS login information</help>
+        <hint><![CDATA[<nic-handle/username>]]></hint>
+    </field>
+    <field>
+        <id>aiccu.general.password</id>
+        <label>Password</label>
+        <type>password</type>
+        <help>SixXS login password</help>
+    </field>
+    <field>
+        <id>aiccu.general.tunnelId</id>
+        <label>Tunnel ID</label>
+        <type>text</type>
+        <help>SixXS tunnel ID (only required if there are multiple tunnels for this account)</help>
+        <hint>Txxxx</hint>
+    </field>
+    <field>
+        <id>aiccu.general.protocol</id>
+        <label>Protocol</label>
+        <type>dropdown</type>
+        <help>Protocol used for setting up the tunnel</help>
+        <advanced>true</advanced>
+    </field>
+    <field>
+        <id>aiccu.general.server</id>
+        <label>Server</label>
+        <type>text</type>
+        <help>Server used for setting up the tunnel</help>
+        <advanced>true</advanced>
+    </field>
+</form>

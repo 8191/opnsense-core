@@ -1,0 +1,5 @@
+<menu>
+    <Services>
+        <Aiccu VisibleName="AICCU" url="/ui/aiccu/" cssClass="fa fa-arrows-h" />
+    </Services>
+</menu>

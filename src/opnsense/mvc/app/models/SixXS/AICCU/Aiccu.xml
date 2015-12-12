@@ -1,0 +1,40 @@
+<model>
+    <mount>//SixXS/aiccu</mount>
+    <description>
+        SixXS AICCU client
+    </description>
+    <items>
+        <general>
+            <enabled type="BooleanField">
+                <default>0</default>
+                <Required>Y</Required>
+            </enabled>
+            <username type="TextField">
+                <Required>Y</Required>
+                <ValidationMessage>Specify an username</ValidationMessage>
+            </username>
+            <password type="TextField">
+                <Required>Y</Required>
+                <ValidationMessage>Specify a password</ValidationMessage>
+            </password>
+            <protocol type="OptionField">
+                <default>tic</default>
+                <Required>Y</Required>
+                <OptionValues>
+                    <tic>TIC</tic>
+                    <tsp>TSP</tsp>
+                    <l2tp>L2TP</l2tp>
+                </OptionValues>
+            </protocol>
+            <server type="TextField">
+                <default>tic.sixxs.net</default>
+                <Required>Y</Required>
+                <ValidationMessage>Specify a valid server</ValidationMessage>
+            </server>
+            <tunnelId type="TextField">
+                <Required>N</Required>
+                <ValidationMessage>Specify a valid tunnel ID</ValidationMessage>
+            </tunnelId>
+        </general>
+    </items>
+</model>
