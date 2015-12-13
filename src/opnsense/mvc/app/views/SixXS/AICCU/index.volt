@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
         // load initial data
         mapDataToFormUI(data_get_map).done(function() {
             // Load success
-            ajaxCall(url="/api/proxy/service/status", sendData={}, callback=function(data,status) {
+            ajaxCall(url="/api/aiccu/service/status", sendData={}, callback=function(data,status) {
                 updateServiceStatusUI(data['status']);
             });
         });
@@ -59,7 +59,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     } else {
                         // request service status after successful save and update status box (wait a few seconds before update)
                         setTimeout(function(){
-                            ajaxCall(url="/api/proxy/service/status", sendData={}, callback=function(data,status) {
+                            ajaxCall(url="/api/aiccu/service/status", sendData={}, callback=function(data,status) {
                                 updateServiceStatusUI(data['status']);
                             });
                         },3000);

@@ -35,6 +35,21 @@
                 <Required>N</Required>
                 <ValidationMessage>Specify a valid tunnel ID</ValidationMessage>
             </tunnelId>
+            <behindNat type="BooleanField">
+                <default>0</default>
+                <Required>Y</Required>
+            </behindNat>
+            <defaultRoute type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </defaultRoute>
+            <customConfig type="TextField">
+                <Required>N</Required>
+                <default><![CDATA[noconfigure false
+makebeats true
+verbose false
+#local_ipv4_override]]></default>
+            </customConfig>
         </general>
     </items>
 </model>

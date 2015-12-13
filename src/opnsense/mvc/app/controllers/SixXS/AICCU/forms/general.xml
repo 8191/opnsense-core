@@ -39,4 +39,25 @@
         <help>Server used for setting up the tunnel</help>
         <advanced>true</advanced>
     </field>
+    <field>
+        <id>aiccu.general.behindNat</id>
+        <label>Behind NAT</label>
+        <type>checkbox</type>
+        <help>Indicates that a NAT-kind network is between the client and the server</help>
+        <advanced>true</advanced>
+    </field>
+    <field>
+        <id>aiccu.general.defaultRoute</id>
+        <label>Default Route</label>
+        <type>checkbox</type>
+        <help>Configure the IPv6 default gateway into the tunnel</help>
+        <advanced>true</advanced>
+    </field>
+    <field>
+        <id>aiccu.general.customConfig</id>
+        <label>Advanced Configuration</label>
+        <type>textbox</type>
+        <help>Additional bare configuration directives (will be added directly to AICCU configuration file)</help>
+        <advanced>true</advanced>
+    </field>
 </form>
