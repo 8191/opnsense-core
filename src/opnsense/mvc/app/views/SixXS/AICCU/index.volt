@@ -29,24 +29,26 @@ POSSIBILITY OF SUCH DAMAGE.
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var data_get_map = {'frm_GeneralSettings':"/api/aiccu/settings/get"};
+        var data_get_map = {'frm_aiccu':"/api/aiccu/settings/get"};
 
         // load initial data
         mapDataToFormUI(data_get_map).done(function() {
             // Load success
             ajaxCall(url="/api/aiccu/service/status", sendData={}, callback=function(data,status) {
                 updateServiceStatusUI(data['status']);
+                //$("#aiccu\\.status\\.running").text(data['status']);
+                //setFormData(
             });
         });
 
-        $("#save_GeneralSettings").click(function() {
-            saveFormToEndpoint(url="/api/aiccu/settings/set",formid='frm_GeneralSettings',callback_ok=function() {
+        $("#save_aiccu-configuration").click(function() {
+            saveFormToEndpoint(url="/api/aiccu/settings/set",formid='frm_aiccu-configuration',callback_ok=function() {
                 // Save success
-                $("#frm_GeneralSettings_progress").addClass("fa fa-spinner fa-pulse");
+                $("#frm_aiccu-configuration_progress").addClass("fa fa-spinner fa-pulse");
 
                 ajaxCall(url="/api/aiccu/service/reconfigure", sendData={}, callback=function(data,status){
                     // when done, disable progress animation.
-                    $("#frm_GeneralSettings_progress").removeClass("fa fa-spinner fa-pulse");
+                    $("#frm_aiccu-configuration_progress").removeClass("fa fa-spinner fa-pulse");
 
                     if (status != "success" || data['status'] != 'ok' ) {
                         // fix error handling
@@ -70,7 +72,7 @@ POSSIBILITY OF SUCH DAMAGE.
     });
 </script>
 
-{{ partial("layout_partials/base_form",['fields':generalForm,'id':'frm_GeneralSettings','apply_btn_id':'save_GeneralSettings'])}}
+{{ partial("layout_partials/base_tabs",['tabs':generalForm['tabs'],'activetab':'aiccu-configuration']) }}
 
 {#
 vim: filetype=html
