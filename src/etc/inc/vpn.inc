@@ -407,11 +407,12 @@ EOD;
 
     if (is_array($a_phase1) && count($a_phase1)) {
         foreach ($a_phase1 as $ph1ent) {
+                    log_error(print_r($ph1ent,1));
             if (isset($ph1ent['disabled'])) {
                 continue;
             }
 
-            if (strpos($ph1ent['authentication_method'], 'rsa') || $ph1ent['authentication_method'] == 'eap-tls') {
+            if (strpos($ph1ent['authentication_method'], 'rsa') !== FALSE || $ph1ent['authentication_method'] == 'eap-tls') {
                 $certline = '';
                 $ikeid = $ph1ent['ikeid'];
                 $cert = lookup_cert($ph1ent['certref']);
