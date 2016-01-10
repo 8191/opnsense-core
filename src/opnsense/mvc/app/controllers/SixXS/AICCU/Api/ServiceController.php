@@ -138,8 +138,12 @@ class ServiceController extends ApiControllerBase
                 if ($mdlAiccu->general->enabled->__toString() == 1) {
                     if ($runStatus['status'] == "running") {
                         $response = $backend->configdRun("aiccu restart");
+
+                        return array("status" => "ok", "action" => "restarted");
                     } else {
                         $response = $backend->configdRun("aiccu start");
+
+                        return array("status" => "ok", "action" => "started");
                     }
                 }
             } else {
