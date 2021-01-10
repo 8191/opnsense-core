@@ -284,7 +284,23 @@ class AliasController extends ApiMutableModelControllerBase
         if ($this->request->isPost()) {
             $this->sessionClose();
             $result = array("existing" => 0, "new" => 0, "status" => "failed");
-            $data = $this->request->getPost("data");
+
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles(true);
+
+                $data = array();
+                foreach ($files as $file) {
+                    if ($file->getKey() == 'data' && $file->getType() == 'application/json') {
+                        $content = file_get_contents($file->getTempName());
+                        $data = json_decode($content, true);
+                        break;
+                    }
+                }
+            }
+            else {
+                $data = $this->request->getPost("data");
+            }
+
             if (
                 is_array($data) && !empty($data['aliases'])
                     && !empty($data['aliases']['alias']) && is_array($data['aliases']['alias'])
